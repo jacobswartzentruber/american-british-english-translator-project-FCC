@@ -35,7 +35,7 @@ class Translator {
     }
 
     if(translated === text) return 'Everything looks good to me!';
-
+    console.log(translated);
     return translated;
   }
 
@@ -43,7 +43,7 @@ class Translator {
     let translated = sentence;
 
     checkList.forEach( (word, i) => {
-      let regex = new RegExp('(?<!-)'+word+'(?!-)', "i");
+      let regex = new RegExp('(?<=^| )'+word+'(?=[ .!,;:\'])', "i");
       let foundIndex = translated.search(regex);
 
       if(foundIndex >= 0){
